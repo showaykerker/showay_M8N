@@ -2,7 +2,7 @@
 #include <Wire.h>
 #include "Adafruit_Sensor.h"
 #include "Adafruit_HMC5883_U.h"
-#include "TinyGPSpp.h"
+#include "TinyGPSPlus.h"
 
 /*
    This sample sketch demonstrates the normal use of a TinyGPS++ (TinyGPSPlus) object.
@@ -39,9 +39,9 @@ void loop()
      lng = gps.location.lng();
   }
   float headingDegrees = get_headingDegrees();
-  Serial.print(lat); Serial.print(',');
-  Serial.print(lng); Serial.print(',');
-  Serial.println(heading);
+  Serial.print(lat, 8); Serial.print(',');
+  Serial.print(lng, 8); Serial.print(',');
+  Serial.println(heading, 6);
   
 }
 
