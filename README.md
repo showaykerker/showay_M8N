@@ -5,7 +5,7 @@
 
 Modified from "[Using a Hobby-Ace Ublox GPS Module Built-in Compass With Arduino Uno by ScotP2](https://goo.gl/he6chg)" 
 
-Simply packed up extra libraries (Adafruit_Sensor.h/ Adafruit_HMC5883_U.h/ miniGPS++.h) to it and modify the output format for my project.
+Simply packed up extra libraries ([Adafruit_Sensor](https://github.com/adafruit/Adafruit_Sensor)/ [Adafruit_HMC5883_U](Adafruit_HMC5883_U)/ [TinyGPSPlus](https://github.com/mikalhart/TinyGPSPlus)) to it and modify the output format for my project.
 
 I tested on Ubuntu 18.04 LTE, Arduino Nano w/ATmega328. 
 
