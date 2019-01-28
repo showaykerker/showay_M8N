@@ -23,24 +23,27 @@ void setup()
 {
   Serial.begin(9600);
   ss.begin(GPSBaud);
-
+  
+  /*
   Serial.println(F("Simple Test with TinyGPS++ and attached NEO-6M GPS module"));
   Serial.print(F("Testing TinyGPS++ library v. ")); Serial.println(TinyGPSPlus::libraryVersion());
   Serial.println();
   displaySensorDetails();
+  */
 }
 
 void loop()
 {
   float lat=0, lng=0, heading=0;
-    
+
   if (gps.location.isValid()){
      lat = gps.location.lat();
      lng = gps.location.lng();
   }
-  float headingDegrees = get_headingDegrees();
   Serial.print(lat, 8); Serial.print(',');
   Serial.print(lng, 8); Serial.print(',');
+  
+  float headingDegrees = get_headingDegrees();
   Serial.println(heading, 6);
   
 }
@@ -130,7 +133,6 @@ void displayGpsInfo()
 }
 
 float get_headingDegrees(){
-  
   sensors_event_t event; 
   mag.getEvent(&event);
   
