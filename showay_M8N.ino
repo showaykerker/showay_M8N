@@ -1,8 +1,8 @@
-#include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 #include <Wire.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_HMC5883_U.h>
+#include "TinyGPSPlus.h"
+#include "Adafruit_Sensor.h"
+#include "Adafruit_HMC5883_U.h"
 
 /*
    This sample sketch demonstrates the normal use of a TinyGPS++ (TinyGPSPlus) object.
@@ -24,7 +24,6 @@ TinyGPSPlus gps;
 // The serial connection to the NEO-6m GPS module
 SoftwareSerial ss(RXPin, TXPin);
 
-
 void setup(){
   Serial.begin(9600);
   ss.begin(GPSBaud);
@@ -37,7 +36,6 @@ void loop(){
 }
 
 void displayGpsInfo(){
-  Serial.print(F("Location: ")); 
   if (gps.location.isValid()){
     Serial.print(gps.location.lat(), decimals);
     Serial.print(F(","));
@@ -45,9 +43,9 @@ void displayGpsInfo(){
     Serial.print(F(","));
   }
   else{
-	Serial.print(0, decimals);
+	Serial.print(0.0, decimals);
     Serial.print(F(","));
-	Serial.print(0, decimals);
+	Serial.print(0.0, decimals);
     Serial.print(F(","));
   }
 
@@ -78,10 +76,10 @@ float displayCompassInfo(){
   heading += declinationAngle;
   
   // Correct for when signs are reversed.
-  if(heading < 0) heading += 2*PI;
+  if(heading < 0) heading += 2 * PI;
     
   // Check for wrap due to addition of declination.
-  if(heading > 2*PI) heading -= 2*PI;
+  if(heading > 2*PI) heading -= 2 * PI;
    
   // Convert radians to degrees for readability.
   float headingDegrees = heading * 180/M_PI; 
